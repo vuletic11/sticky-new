@@ -1,0 +1,145 @@
+@import '../../../main-styles.scss';
+
+.note-manager-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 700px;
+    max-height: 500px;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+
+
+    width: 250px;
+    background: white;
+
+    padding: 42px;
+
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.note-list-container{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 42px;
+    position: relative;
+
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    .top-bar{
+        margin-bottom: 20px;
+        display: flex;
+        .title{
+            flex-grow: 1;
+            margin: 0;
+        }
+    }
+}
+
+.list-menu{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    flex-grow: 1; //to take all left-over space
+
+    .list-menu-item{
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        border-radius: 5px;
+        width: 100%;
+        color: #5f5f5f;
+        margin-bottom: 5px;
+
+        &:hover{
+            background: $light;
+        }
+
+        &.is-active{
+            background-color: #cff8ef;
+            color: $dark-green;
+        }
+    }
+}
+
+.note{
+    display: flex;
+    background: rgb(206, 206, 206);
+    padding: 60px 70px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 180px;
+    height: 144px;
+    align-content: center;
+    justify-content: center;
+    //samo align-items:center; ?
+
+
+    &:not(.complete){
+        cursor: pointer;
+        transition: box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s;
+    }
+   
+  
+&:active{
+    transform: scale(0.95);
+}
+
+&:hover{
+        box-shadow: 0 0 0 5px #cccccc;
+
+        .note-buttons{
+            opacity: 1;
+            transform: scale(1);
+        }
+}
+
+&.completed.note-text{
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+.note-text{
+    display: flex;
+    flex-grow: 1;
+}
+
+.note-buttons{
+    transition: opacity 0.2s, transform 0.2s;
+    opacity: 0;
+    transform: scale(0.8) ;
+}
+
+}
+
+.note-c{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+ }
+
+.circle-add-button{
+    height: 50px;
+    width: 50px;
+    background: $primary;
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+    border-radius: 50%;
+    
+
+
+}
+
+.empty-state-text{
+    font-size: 20px;
+    color: #5f5f5f;
+    text-align: center;
+}
